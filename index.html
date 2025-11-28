@@ -2,140 +2,476 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Caunin - Developer Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f2f2f2;
+            box-sizing: border-box;
         }
-
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+        }
+        
         /* Navigation Bar */
         nav {
-            background: #333;
-            padding: 15px;
+            background: rgba(51, 51, 51, 0.95);
+            padding: 15px 0;
             position: sticky;
             top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        nav a {
+        
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
             color: white;
-            margin-right: 20px;
-            text-decoration: none;
+            font-size: 1.5em;
             font-weight: bold;
         }
-        nav a:hover {
-            text-decoration: underline;
+        
+        nav .nav-links {
+            display: flex;
+            gap: 30px;
         }
-
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 80px 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .hero .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
         /* Main Sections */
         .section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
+            background: white;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-
+        
         h2 {
             color: #333;
-            border-left: 6px solid #666;
-            padding-left: 10px;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-left: 6px solid #667eea;
+            padding-left: 20px;
         }
-
-        /* Project Cards */
-        .projects {
+        
+        /* About Section */
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
         }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .skills-list li strong {
+            color: #667eea;
+        }
+        
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
         .project-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
         .project-card h3 {
-            margin-top: 0;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
-
+        
+        .project-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background: #5568d3;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            padding: 15px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        
+        .contact-form button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background: #5568d3;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
+            padding: 30px;
+            background: rgba(51, 51, 51, 0.95);
             color: white;
-            margin-top: 40px;
+            margin-top: 60px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- Navbar -->
+    <!-- Navigation Bar -->
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-container">
+            <div class="logo">Welcome to my Portfolio</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- HEADER -->
-    <div class="section">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This website showcases my skills, projects, and interests. Scroll down to learn more!</p>
-    </div>
-
-    <!-- ABOUT SECTION -->
-    <div class="section" id="about">
-        <h2>About Me</h2>
-        <p>
-            Hi! I'm a student interested in technology, coding, and learning new skills.
-            I enjoy working on school projects and personal programming experiments.
-            I'm currently learning HTML, CSS, Python, and more.
-        </p>
-    </div>
-
-    <!-- PROJECTS SECTION -->
-    <div class="section" id="projects">
-        <h2>My Projects</h2>
-
-        <div class="projects">
-
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h3>Project Name 1</h3>
-                <p>A short description of what this project does.</p>
-                <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3>Project Name 2</h3>
-                <p>Another project description goes here.</p>
-                <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h3>Project Name 3</h3>
-                <p>Explain what you built, learned, or experimented with.</p>
-                <a href="https://github.com/yourusername/project3" target="_blank">View on GitHub</a>
-            </div>
-
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Joshua Caunin</h1>
+        <p class="tagline">Full-Stack Developer | IT Enthusiast | Problem Solver</p>
+        <p style="color: #666; font-size: 1.1em;">John Abbott College Student specializing in web development, IT support, and PC hardware</p>
+        
+        <div class="skills-badges">
+            <span class="badge">C#</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">React</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">ASP.NET</span>
+            <span class="badge">Kotlin</span>
+            <span class="badge">SQL</span>
+            <span class="badge">Git</span>
         </div>
     </div>
 
-    <!-- CONTACT SECTION -->
-    <div class="section" id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me at:</p>
-        <ul>
-            <li>Email: your-email@example.com</li>
-            <li>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-        </ul>
+    <!-- About Section -->
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hi! I'm Joshua, a passionate developer and IT enthusiast currently studying at John Abbott College. 
+                    I'm bilingual (English/French) with a strong foundation in full-stack development and hands-on 
+                    experience in IT support and PC hardware.
+                </p>
+                <p>
+                    I specialize in building modern web applications using React, Node.js, and ASP.NET Core, as well as 
+                    mobile applications with Kotlin and Jetpack Compose. I'm also experienced in system administration, 
+                    virtualization, and network configuration.
+                </p>
+                <p>
+                    As a clear communicator who takes initiative and meets deadlines, I'm eager to contribute to 
+                    entry-level IT support, hardware, and full-stack web development roles.
+                </p>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 20px; color: #667eea;">Technical Skills</h3>
+                <ul class="skills-list">
+                    <li><strong>Languages:</strong> C#, JavaScript/TypeScript, Kotlin, SQL</li>
+                    <li><strong>Frontend:</strong> React, HTML5, CSS3, Jetpack Compose</li>
+                    <li><strong>Backend:</strong> Node.js, ASP.NET Core, Express, REST APIs</li>
+                    <li><strong>Database:</strong> MongoDB, SQL Server, Entity Framework</li>
+                    <li><strong>Tools:</strong> Git/GitHub, Visual Studio, VS Code, Postman</li>
+                    <li><strong>IT:</strong> PC builds, troubleshooting, Active Directory, GPO</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <footer>
-        © 2025 My Portfolio
-    </footer>
+    <!-- Projects Section -->
+    <div class="section" id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1: JAC Theatre Ticketing App -->
+            <div class="project-card">
+                <h3>JAC Theatre Ticketing App</h3>
+                <p>
+                    A comprehensive full-stack theater booking application featuring an Android frontend built with 
+                    Kotlin and Jetpack Compose, and a robust Node.js backend with JWT authentication, seat selection 
+                    system, cart management, and integrated payment processing (Stripe/PayPal).
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">Jetpack Compose</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">JWT</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+                <a href="https://github.com/O7SeaWaveO7/jactheatreticketingapp" target="_blank" class="project-link">View on GitHub</a>
+            </div>
 
+            <!-- Project 2: Game Review Website -->
+            <div class="project-card">
+                <h3>Game Ratings Website</h3>
+                <p>
+                    A full-stack web application for rating and reviewing games, featuring a MongoDB-backed Express 
+                    REST API with authentication and validation, paired with a responsive React frontend. Implemented 
+                    branching/PR workflow and comprehensive unit testing across models and controllers.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">Jest</span>
+                </div>
+                <a href="https://github.com/O7SeaWaveO7/game-review-project" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+
+            <!-- Project 3: Exploding Kittens Game -->
+            <div class="project-card">
+                <h3>Exploding Kittens - Style Game</h3>
+                <p>
+                    A desktop card game built with C# and WPF, featuring responsive UI, robust input handling, and 
+                    turn-based card mechanics. Designed with OOP architecture separating UI from game logic, developed 
+                    collaboratively using Git branches and pull requests.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">WPF</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">XAML</span>
+                    <span class="tech-tag">Git</span>
+                </div>
+                <a href="https://github.com/O7SeaWaveO7/exploding-kittens" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+
+            <!-- Project 4: D&D Web Application -->
+            <div class="project-card">
+                <h3>D&D Campaign Manager</h3>
+                <p>
+                    A web application for managing Dungeons & Dragons campaigns, built with ASP.NET Core and featuring 
+                    role-based authorization (Admin/Editor/User), comprehensive entity models for monsters, spells, 
+                    and character classes, plus repository patterns with Unit of Work architecture and Serilog logging.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Entity Framework</span>
+                    <span class="tech-tag">Identity</span>
+                    <span class="tech-tag">Serilog</span>
+                </div>
+                <a href="https://github.com/O7SeaWaveO7/dnd-web-app" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <div>
+                <h3 style="margin-bottom: 20px; color: #667eea;">Contact Information</h3>
+                <ul class="contact-info">
+                    <li><strong>Email:</strong> <a href="mailto:j.caunin0204@gmail.com">j.caunin0204@gmail.com</a></li>
+                    <li><strong>Phone:</strong> (438) 928-0204</li>
+                    <li><strong>Location:</strong> Vaudreuil-Dorion, QC, Canada</li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/O7SeaWaveO7" target="_blank">github.com/O7SeaWaveO7</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/joshua-caunin-514b462b3" target="_blank">linkedin.com/in/joshua-caunin-514b462b3</a></li>
+                    <li><strong>Languages:</strong> English (Fluent), French (Fluent)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 20px; color: #667eea;">Send a Message</h3>
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                    Note: Replace YOUR_FORM_ID with your actual Formspree form ID for the contact form to work.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Joshua Caunin. All rights reserved.</p>
+        <p style="margin-top: 10px;">Built with HTML, CSS, and hosted on GitHub Pages</p>
+    </footer>
 </body>
 </html>
