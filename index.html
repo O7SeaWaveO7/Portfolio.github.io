@@ -65,127 +65,104 @@
             transform: translateY(-2px);
         }
         
-        /* Hero Section */  
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 100px 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 120px 40px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-content {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-image {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .decorative-dots {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 150px;
-            height: 150px;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-            background-size: 15px 15px;
-            z-index: 1;
-        }
-        
-        .hero-text {
-            color: white;
         }
         
         .hero h1 {
-            font-size: 3.5em;
-            color: white;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 5em;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
         }
         
         .hero .tagline {
-            font-size: 1.8em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
-            font-weight: 300;
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: #667eea;
+            margin: 30px auto;
         }
         
         .hero .subtitle {
             font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
+            color: #666;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero .skills-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 30px;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
         }
         
         .badge {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 30px;
             font-size: 0.95em;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            border: 2px solid #667eea;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .badge:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
         }
         
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 20px;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            
-            .hero-image {
-                width: 300px;
-                height: 300px;
+                padding: 80px 20px;
+                min-height: 60vh;
             }
             
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 3em;
+                letter-spacing: -1px;
             }
             
             .hero .tagline {
-                font-size: 1.4em;
+                font-size: 1.1em;
+                letter-spacing: 2px;
             }
             
-            .hero .skills-badges {
-                justify-content: center;
+            .hero .subtitle {
+                font-size: 1em;
             }
         }
         
@@ -398,28 +375,23 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+   <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <div class="hero-image-container">
-                <img src="your-photo.jpg" alt="Joshua Caunin" class="hero-image">
-                <div class="decorative-dots"></div>
-            </div>
-            <div class="hero-text">
-                <h1>Hello, I'm Joshua</h1>
-                <p class="tagline">Full-Stack Developer</p>
-                <p class="subtitle">Building modern web & mobile applications</p>
-                
-                <div class="skills-badges">
-                    <span class="badge">C#</span>
-                    <span class="badge">JavaScript</span>
-                    <span class="badge">React</span>
-                    <span class="badge">Node.js</span>
-                    <span class="badge">ASP.NET</span>
-                    <span class="badge">Kotlin</span>
-                    <span class="badge">SQL</span>
-                    <span class="badge">Git</span>
-                </div>
+            <h1>Joshua Caunin</h1>
+            <p class="tagline">Full-Stack Developer</p>
+            <div class="hero-divider"></div>
+            <p class="subtitle">Building modern web & mobile applications with clean, scalable code</p>
+            
+            <div class="skills-badges">
+                <span class="badge">C#</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">ASP.NET</span>
+                <span class="badge">Kotlin</span>
+                <span class="badge">SQL</span>
+                <span class="badge">Git</span>
             </div>
         </div>
     </div>
