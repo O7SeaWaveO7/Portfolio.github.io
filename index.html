@@ -65,41 +65,128 @@
             transform: translateY(-2px);
         }
         
-        /* Hero Section */
+        /* Hero Section */  
         .hero {
-            background: white;
-            padding: 80px 40px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .decorative-dots {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+            background-size: 15px 15px;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            color: white;
         }
         
         .hero h1 {
-            font-size: 3em;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
         
         .hero .tagline {
-            font-size: 1.3em;
-            color: #666;
-            margin-bottom: 30px;
+            font-size: 1.8em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
         }
         
         .hero .skills-badges {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 10px;
             margin-top: 30px;
         }
         
         .badge {
-            background: #667eea;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
             font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-image {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .tagline {
+                font-size: 1.4em;
+            }
+            
+            .hero .skills-badges {
+                justify-content: center;
+            }
         }
         
         /* Main Sections */
@@ -313,19 +400,27 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1>Joshua Caunin</h1>
-        <p class="tagline">Full-Stack Developer | IT Enthusiast | Problem Solver</p>
-        <p style="color: #666; font-size: 1.1em;">John Abbott College Student specializing in web development, IT support, and PC hardware</p>
-        
-        <div class="skills-badges">
-            <span class="badge">C#</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">React</span>
-            <span class="badge">Node.js</span>
-            <span class="badge">ASP.NET</span>
-            <span class="badge">Kotlin</span>
-            <span class="badge">SQL</span>
-            <span class="badge">Git</span>
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="your-photo.jpg" alt="Joshua Caunin" class="hero-image">
+                <div class="decorative-dots"></div>
+            </div>
+            <div class="hero-text">
+                <h1>Hello, I'm Joshua</h1>
+                <p class="tagline">Full-Stack Developer</p>
+                <p class="subtitle">Building modern web & mobile applications</p>
+                
+                <div class="skills-badges">
+                    <span class="badge">C#</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">React</span>
+                    <span class="badge">Node.js</span>
+                    <span class="badge">ASP.NET</span>
+                    <span class="badge">Kotlin</span>
+                    <span class="badge">SQL</span>
+                    <span class="badge">Git</span>
+                </div>
+            </div>
         </div>
     </div>
 
